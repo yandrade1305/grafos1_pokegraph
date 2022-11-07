@@ -5,6 +5,7 @@
 
 ## Alunos
 |Matrícula | Aluno |
+| -- | -- |
 | 19/0010606 | Artur de Sousa Vieira |
 | 18/0145363 |  Yan Andrade de Sena  |
 
