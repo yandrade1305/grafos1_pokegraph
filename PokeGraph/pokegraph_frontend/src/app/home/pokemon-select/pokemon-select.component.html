@@ -1,0 +1,52 @@
+<form class="form mt-4">
+  <div class="form-group">
+  <div class="row">
+      <div class="column">
+        <h4>Select your Pokemon</h4>
+        <div style="text-align: center;">
+          <img class="img-responsive" [src]="imageSource">
+        </div>
+        <div>
+          <div style="text-align: center;">
+            <mat-form-field appearance="fill">
+              <mat-select class="form-control">
+                <mat-label>Favorite food</mat-label>
+                <mat-option *ngFor="let option of options" [value]="option.id">
+                  {{option.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+    <div class="column">
+      <div style="text-align: center;">
+          <mat-icon>close</mat-icon>
+      </div>
+    </div>
+    </div>
+    <div class="column">
+      <h4>Select your Pokemon</h4>
+      <div style="text-align: center;">
+        <img class="img-responsive" [src]="imageSource">
+      </div>
+      <div>
+        <div style="text-align: center;">
+        <mat-form-field appearance="fill">
+          <mat-select class="form-control">
+            <mat-label>Favorite food</mat-label>
+            <mat-option *ngFor="let option of options" [value]="option.id">
+              {{option.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <div  style="text-align: center;">
+      <button type="submit" mat-flat-button color="primary">
+        Go!
+      </button>
+    </div>
+  </div>
+</form>

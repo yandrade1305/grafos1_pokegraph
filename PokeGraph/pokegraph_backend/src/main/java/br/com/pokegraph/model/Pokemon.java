@@ -19,6 +19,7 @@ public class Pokemon {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private String url;
     private String name;
     @Enumerated
     private Type firstType;

@@ -10,12 +10,14 @@ import lombok.NoArgsConstructor;
 public class PokemonDTO {
     private Long id;
     private String name;
+    private String url;
     private Type firstType;
     private Type secondType;
 
     public PokemonDTO(Pokemon pokemon){
         this.id = pokemon.getId();
         this.name = pokemon.getName();
+        this.url = pokemon.getUrl();
         this.firstType = pokemon.getFirstType();
         this.secondType = pokemon.getSecondType();
     }
