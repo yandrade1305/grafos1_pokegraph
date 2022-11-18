@@ -1,8 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormControl, FormGroup } from '@angular/forms';
-import { PokemonService } from './pokemon.service';
-import { Pokemon } from './pokemons';
-import {DomSanitizer} from "@angular/platform-browser";
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup} from '@angular/forms';
+import {PokemonService} from './pokemon.service';
+import {Pokemon} from './pokemons';
+import {MatSelectChange} from "@angular/material/select";
 
 interface Food {
   value: string;
@@ -16,25 +16,32 @@ interface Food {
 })
 export class PokemonSelectComponent implements OnInit {
 
-
-
-  @Input()
-  pokemonForm: FormGroup | undefined;
-
   options: any[] = [];
   imageAlt: any;
-  imageSource: any;
+  imageSourceSelf: any;
+  imageSourceOther: any;
+  pokemon1: any;
+  pokemon2: any;
 
-  constructor(private pokemonService: PokemonService) {
+  pokemonForm = this.formBuilder.group({
+    pokemon1: '',
+    pokemon2: '',
+  });
+
+  constructor(
+    private pokemonService: PokemonService,
+    private formBuilder: FormBuilder,
+  ) {
 
   }
 
   ngOnInit(): void {
     this.pokemonService.listPokemon().subscribe((response: any) => {
-      this.options = response.map((pokemon: Pokemon) => {
+      response.map((pokemon: Pokemon) => {
         this.extract(pokemon);
       });
-      console.log(this.options);
+      this.options = response
+      console.log(this.options)
     });
   }
 
@@ -47,5 +54,20 @@ export class PokemonSelectComponent implements OnInit {
   }
 
 
+  loadPokemonSelf($event: MatSelectChange) {
+    this.imageSourceSelf = $event.value.url
+    this.pokemon1 = $event.value.id
+  }
+  loadPokemonOther($event: MatSelectChange) {
+    this.imageSourceOther = $event.value.url
+    this.pokemon2 = $event.value.id
 
+  }
+
+  battle() {
+    this.pokemonService.battlePokemon(this.pokemon1, this.pokemon2).subscribe((response: any) => {
+      console.log(response)
+    });
+
+  }
 }
