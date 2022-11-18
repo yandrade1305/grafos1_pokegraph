@@ -9,6 +9,7 @@ import {MatButtonModule} from "@angular/material/button";
 import { PokemonSelectComponent } from './pokemon-select/pokemon-select.component';
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import {MatSelectModule} from "@angular/material/select";
     MatToolbarModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatSelectModule
+    MatSelectModule,
+    ReactiveFormsModule
   ],
   exports: [HomeComponent]
 })
