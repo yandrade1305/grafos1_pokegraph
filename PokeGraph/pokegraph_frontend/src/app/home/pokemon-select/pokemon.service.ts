@@ -15,4 +15,8 @@ export class PokemonService {
   listPokemon(): Observable<Pokemons> {
     return this.http.get<Pokemons>(`${API}/pokemons`);
   }
+
+  battlePokemon(firstPokemonId: number, secondPokemonId: number): Observable<Pokemons> {
+    return this.http.post<Pokemons>(`${API}/battle/${firstPokemonId}/${secondPokemonId}`, {});
+  }
 }
