@@ -2,16 +2,18 @@
   <div class="form-group">
     <div class="row" style="overflow:auto;">
       <div class="column">
-        <h4>Select your Pokemon</h4>
-        <div *ngIf="imageSourceSelf" style="text-align: center;">
-          <img class="img-responsive" style="width:250px; height:250px" [src]="imageSourceSelf">
+        <h4 style="font-size: x-large">Select your Pokemon</h4>
+        <div style="text-align: center;">
+          <img *ngIf="pokemon1 !== null"class="img-responsive" style="width:250px; height:250px" [src]="imageSourceSelf">
+          <img *ngIf="pokemon1 === null" class="question-mark" style="width:250px; height:250px" src="/assets/blackQuestionMark.png">
         </div>
         <div>
           <div style="text-align: center;">
             <mat-form-field appearance="fill">
-              <mat-select class="form-control" (selectionChange)="loadPokemonSelf($event)" formControlName="pokemon1">
+              <mat-select placeholder="Selecione" class="form-control" (selectionChange)="loadPokemonSelf($event)">
                 <mat-option *ngFor="let option of options" [value]="option">
                   {{option.name}}
+                  <img class="img-responsive" style="width:30px; height:30px;position: absolute; right: 0" src="{{option.url}}">
                 </mat-option>
               </mat-select>
             </mat-form-field>
@@ -19,21 +21,23 @@
         </div>
       </div>
       <div class="column">
-        <div style="text-align: center;">
-            <mat-icon>close</mat-icon>
+        <div style="text-align: center; margin-top: 160px">
+            <mat-icon class="battle-symbol">close</mat-icon>
         </div>
       </div>
     <div class="column">
-      <h4>Select enemy Pokemon</h4>
-      <div *ngIf="imageSourceOther" style="text-align: center;">
-        <img class="img-responsive" style="width:250px; height:250px" [src]="imageSourceOther">
+      <h4 style="font-size: x-large">Select enemy Pokemon</h4>
+      <div style="text-align: center;">
+        <img *ngIf="pokemon2 !== null"class="img-responsive" style="width:250px; height:250px" [src]="imageSourceOther">
+        <img *ngIf="pokemon2 === null" class="question-mark" style="width:250px; height:250px" src="/assets/blackQuestionMark.png">
       </div>
       <div>
         <div style="text-align: center;">
         <mat-form-field appearance="fill">
-          <mat-select class="form-control" (selectionChange)="loadPokemonOther($event)" formControlName="pokemon2">
+          <mat-select placeholder="Selecione" class="form-control" (selectionChange)="loadPokemonOther($event)">
             <mat-option *ngFor="let option of options" [value]="option">
               {{option.name}}
+              <img class="img-responsive" style="width:30px; height:30px;position: absolute; right: 0" src="{{option.url}}">
             </mat-option>
           </mat-select>
         </mat-form-field>

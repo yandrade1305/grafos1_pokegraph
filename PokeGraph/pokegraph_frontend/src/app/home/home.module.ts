@@ -10,12 +10,15 @@ import { PokemonSelectComponent } from './pokemon-select/pokemon-select.componen
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatSelectModule} from "@angular/material/select";
 import {ReactiveFormsModule} from "@angular/forms";
+import { ModalWinnerComponent } from './modal-winner/modal-winner.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     PokemonSelectComponent,
+    ModalWinnerComponent,
   ],
   imports: [
     CommonModule,
@@ -25,7 +28,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     MatButtonModule,
     MatFormFieldModule,
     MatSelectModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ],
   exports: [HomeComponent]
 })

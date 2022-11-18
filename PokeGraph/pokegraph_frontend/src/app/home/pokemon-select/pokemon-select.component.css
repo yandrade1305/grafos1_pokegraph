@@ -16,4 +16,15 @@ h4 {
   transform: translate(-50%, -50%);
 }
 
+.question-mark{
+  opacity: 30%;
+  margin-bottom: 20px;
+}
+
+.battle-symbol{
+  height: auto;
+  width: auto;
+  font-size: 150px;
+}
+
 
